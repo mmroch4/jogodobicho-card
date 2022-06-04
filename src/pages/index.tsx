@@ -81,6 +81,8 @@ export default function Page() {
         }
       })
       .finally(() => setIsLoading(false));
+
+    console.log(generatedToken, value, animal, name, phone, bankAccount);
   }
 
   function handleCopyToken() {
@@ -135,7 +137,14 @@ export default function Page() {
           <div
             className="inputs"
             style={{ display: 'none' }}
-            onChange={(e) => {
+            onChange={(
+              e: FormEvent<HTMLDivElement> & {
+                target: {
+                  id: any;
+                  value: any;
+                };
+              }
+            ) => {
               handleChangeGridBoxBackgroundColor(e.target.id);
 
               setAnimal(e.target.value);

@@ -81,8 +81,6 @@ export default function Page() {
         }
       })
       .finally(() => setIsLoading(false));
-
-    console.log(generatedToken, value, animal, name, phone, bankAccount);
   }
 
   function handleCopyToken() {

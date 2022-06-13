@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { FormEvent, useState } from 'react';
-import { format, normalize } from 'react-phone-input-auto-format';
 import { api } from '../services/api';
 import { generateToken } from '../services/generateToken';
 import styles from '../styles/Index.module.scss';
@@ -13,8 +12,8 @@ export default function Page() {
   const [animal, setAnimal] = useState<number>(0);
   const [value, setValue] = useState<number>(0);
   const [name, setName] = useState<string>('');
-  const [phone, setPhone] = useState<string>('');
-  const [bankAccount, setBankAccount] = useState<string>('');
+  const [phone, setPhone] = useState<number>(0);
+  const [bankAccount, setBankAccount] = useState<number>(0);
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -27,14 +26,15 @@ export default function Page() {
 
     if (!name) errors.push('É preciso inserir um nome');
 
-    if (!phone || Number(normalize(phone)) < 1000000000 || Number(normalize(phone)) > 9999999999)
+    if (!phone || phone < 1000000000 || phone > 9999999999)
       errors.push('É preciso inserir um nº de telefone válido');
 
     if (
       !bankAccount ||
-      bankAccount.length !== 8 ||
+      String(bankAccount).length !== 8 ||
       !isNumeric(bankAccount) ||
-      Number(bankAccount) < 10000000
+      bankAccount < 10000000 ||
+      bankAccount > 99999999
     )
       errors.push('É preciso inserir uma conta bancária válido');
 
@@ -58,8 +58,8 @@ export default function Page() {
           value: Number(value),
           animal: Number(animal),
           name: name.toLocaleLowerCase(),
-          phone,
-          bank_account: Number(bankAccount),
+          phone: String(phone),
+          bank_account: bankAccount,
         }),
         {
           headers: {
@@ -95,8 +95,8 @@ export default function Page() {
     setValue(0);
     setAnimal(0);
     setName('');
-    setPhone('');
-    setBankAccount('');
+    setPhone(0);
+    setBankAccount(0);
   }
 
   function handleChangeGridBoxBackgroundColor(id?: number) {
@@ -116,7 +116,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Tio Davis - Jogo do Bicho</title>
+        <title>Jogo do Bicho</title>
 
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
@@ -326,12 +326,13 @@ export default function Page() {
           <label className={`${styles.field} ${styles.field_v1}`}>
             <input
               className={styles.field__input}
-              type="tel"
-              maxLength={14}
+              type="number"
+              minLength={10}
+              maxLength={10}
               value={phone}
-              onChange={(e) => setPhone(format(e.target.value))}
+              onChange={(e) => setPhone(Number(e.target.value))}
               required
-              placeholder="ex: (123) 456-7890"
+              placeholder="ex: 1234567890"
             />
             <span className={styles.field__icon}>
               <svg
@@ -355,7 +356,7 @@ export default function Page() {
               type="number"
               placeholder="ex: 61202246"
               value={bankAccount}
-              onChange={(e) => setBankAccount(e.target.value)}
+              onChange={(e) => setBankAccount(Number(e.target.value))}
               required
             />
             <span className={styles.field__icon}>

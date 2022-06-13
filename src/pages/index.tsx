@@ -116,7 +116,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>Jogo do Bicho</title>
+        <title>Cartela - Jogo do Bicho</title>
 
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />

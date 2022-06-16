@@ -1,5 +1,32 @@
 import Head from 'next/head';
 import { FormEvent, useState } from 'react';
+import {
+  Abelha,
+  Baleia,
+  Bode,
+  Cachorro,
+  Camelo,
+  Carneiro,
+  Cavalo,
+  Cobra,
+  Coelho,
+  Elefante,
+  Esquilo,
+  Formiga,
+  Galo,
+  Golfinho,
+  Jacare,
+  Joaninha,
+  Macaco,
+  Passaro,
+  Peru,
+  Polvo,
+  Porco,
+  Tartaruga,
+  Tigre,
+  Touro,
+  Vaca,
+} from '../components/icons';
 import { api } from '../services/api';
 import { generateToken } from '../services/generateToken';
 import styles from '../styles/Index.module.scss';
@@ -195,79 +222,79 @@ export default function Page() {
           </div>
           <div id="animalGrid" className={styles.animalGrid}>
             <label htmlFor="animal-1" id="animal-1" title="Esquilo">
-              &#128063;
+              <Esquilo />
             </label>
             <label htmlFor="animal-2" id="animal-2" title="Polvo">
-              &#128025;
+              <Polvo />
             </label>
             <label htmlFor="animal-3" id="animal-3" title="Formiga">
-              &#128028;
+              <Formiga />
             </label>
             <label htmlFor="animal-4" id="animal-4" title="Baleia">
-              &#128011;
+              <Baleia />
             </label>
             <label htmlFor="animal-5" id="animal-5" title="Cachorro">
-              &#128021;
+              <Cachorro />
             </label>
             <label htmlFor="animal-6" id="animal-6" title="Abelha">
-              &#128029;
+              <Abelha />
             </label>
-            <label htmlFor="animal-7" id="animal-7" title="Cabra">
-              &#128016;
+            <label htmlFor="animal-7" id="animal-7" title="Bode">
+              <Bode />
             </label>
             <label htmlFor="animal-8" id="animal-8" title="Carneiro">
-              &#128015;
+              <Carneiro />
             </label>
             <label htmlFor="animal-9" id="animal-9" title="Cobra">
-              &#128013;
+              <Cobra />
             </label>
             <label htmlFor="animal-10" id="animal-10" title="Coelho">
-              &#128007;
+              <Coelho />
             </label>
             <label htmlFor="animal-11" id="animal-11" title="Cavalo">
-              &#128014;
+              <Cavalo />
             </label>
             <label htmlFor="animal-12" id="animal-12" title="Elefante">
-              &#128024;
+              <Elefante />
             </label>
             <label htmlFor="animal-13" id="animal-13" title="Galo">
-              &#128019;
+              <Galo />
             </label>
             <label htmlFor="animal-14" id="animal-14" title="Camelo">
-              &#128042;
+              <Camelo />
             </label>
             <label htmlFor="animal-15" id="animal-15" title="Jacaré">
-              &#128010;
+              <Jacare />
             </label>
             <label htmlFor="animal-16" id="animal-16" title="Golfinho">
-              &#128044;
+              <Golfinho />
             </label>
             <label htmlFor="animal-17" id="animal-17" title="Macaco">
-              &#128018;
+              <Macaco />
             </label>
             <label htmlFor="animal-18" id="animal-18" title="Porco">
-              &#128022;
+              <Porco />
             </label>
             <label htmlFor="animal-19" id="animal-19" title="Pássaro">
-              &#128038;
+              <Passaro />
             </label>
             <label htmlFor="animal-20" id="animal-20" title="Peru">
-              &#129411;
+              <Peru />
             </label>
             <label htmlFor="animal-21" id="animal-21" title="Touro">
-              &#128002;
+              <Touro />
             </label>
             <label htmlFor="animal-22" id="animal-22" title="Tigre">
-              &#128005;
+              <Tigre />
             </label>
             <label htmlFor="animal-23" id="animal-23" title="Tartaruga">
-              &#128034;
+              <Tartaruga />
             </label>
             <label htmlFor="animal-24" id="animal-24" title="Joaninha">
-              &#128030;
+              <Joaninha />
             </label>
             <label htmlFor="animal-25" id="animal-25" title="Vaca">
-              &#128004;
+              <Vaca />
             </label>
           </div>
 
